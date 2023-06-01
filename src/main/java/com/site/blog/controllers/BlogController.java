@@ -83,8 +83,6 @@ public class BlogController {
         return "redirect:/blog/{id}";
     }
 
-
-
     @PostMapping("/blog/{id}/remove")
     public String blogPostDelete(@PathVariable(value = "id") long id, Model model) {
         Post post = postRepository.findById(id).orElseThrow();
@@ -92,5 +90,12 @@ public class BlogController {
         return "redirect:/blog";
     }
 
+    @PostMapping("/blog/search")
+    public String blogSearchGet(@RequestParam String search, Model model) {
+        Iterable<Post> posts = postRepository.findByTitleLikeIgnoreCase(search);
+        model.addAttribute("search_posts", posts);
+        model.addAttribute("search", search);
+        return "blog-search";
+    }
 
 }

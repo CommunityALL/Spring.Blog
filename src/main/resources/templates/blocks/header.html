@@ -19,11 +19,16 @@
                         <a class="nav-link" href="/about">Про нас</a>
                     </li>
                 </ul>
-<!--                <form class="d-flex" role="search">-->
-<!--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--                    <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--                </form>-->
+                <form th:action="'/blog/search'" method="post">
+<!--                <form action="/blog/add"  method="get" class="d-flex" role="search">-->
+                    <label>
+                        <input type="text" name="search" placeholder="Пошук" class="form-control">
+                    </label>
+<!--                    <input class="form-control me-2" type="search" placeholder="search" name="search" aria-label="Search">-->
+                    <button class="btn btn-outline-success" type="submit" >Пошук</button>
+                </form>
             </div>
         </div>
     </nav>
+    <br>
 </div>
